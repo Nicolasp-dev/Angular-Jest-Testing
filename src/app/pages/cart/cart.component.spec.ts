@@ -67,6 +67,12 @@ describe('CartComponent', () => {
     fixture.detectChanges();
 
     service = fixture.debugElement.injector.get(BookService);
+    jest.spyOn(service, 'getBooksFromCart').mockImplementation(() => listBook);
+  })
+
+  afterEach(() => {
+    fixture.destroy();
+    jest.resetAllMocks();
   })
 
   it('should create', () => {
